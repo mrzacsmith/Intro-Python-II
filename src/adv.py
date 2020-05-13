@@ -51,7 +51,7 @@ import sys
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-intro = 'I was a young teen, in search to find a real demon!' + \
+intro = 'I was a young teen, in search of finding a real demon!' + \
     ' I was told that this house was haunted by one!\n\n'
 for char in intro:
     sys.stdout.write(char)
@@ -63,14 +63,14 @@ name = input('\tWhat is your name, charmed one? \t')
 for char in name:
     sys.stdout.write(char)
     sys.stdout.flush()
-    time.sleep(.20
+    time.sleep(.20)
 
 while True:
 
-    direction=input(
-        'What direction would you like to go: n(orth), s(outh), e(ast), w(est), q to quit!').lower()
+    direction = input(
+        '\nWhat direction would you like to go: n(orth), s(outh), e(ast), w(est), q to quit! ').lower()
 
-    if direction == 'n:
+    if direction == 'n':
         print('north')
 
     elif direction == 's':
@@ -81,3 +81,7 @@ while True:
 
     elif direction == 'w':
         print('west')
+
+    elif direction == 'q':
+        print('\nHaha, you quit rather than face your fears! \n\n')
+        break
