@@ -3,7 +3,7 @@ import sys
 import os
 from room import Room
 from player import Player
-from item import Item, Food, Weapon
+from item import Item
 # Declare all the rooms
 
 room = {
@@ -41,17 +41,16 @@ room['treasure'].s_to = room['narrow']
 spellbook = Item('spellbook', 'book of magic and spells')
 candlestick = Item('candlestick', 'light your path with a candlestick')
 key = Item('key', 'use to open the treasure chest')
+pbj = Item("pbj", "peanut butter and jelly sandwich")
+jerky = Item("jerky", "beef jerky snack")
+stick = Item("stick", "old wooden stick")
 
-# food
-pbj = Food("peanut butter and jelly", "gives you 25 health", 25)
-jerky = Food("beef jerky", "gives you 35 health", 35)
-peach = Food("sweet peach", "gives you 5 health", 5)
 
-# weapons
-stick = Weapon("wooden stick", "deals 5 damage", 5)
-sword = Weapon("long sword", "deals 25 damamge", 5)
-pistol = Weapon("old timey pistol", "deals 50 damage", 50)
-
+room["outside"].addItems(spellbook, pbj, jerky)
+room["foyer"].addItems(stick, key)
+room["overlook"].addItems(stick, spellbook, jery)
+room["narrow"].addItems(candlestick, pbj)
+room["treasure"].addItems(spellbook, key, jerky)
 
 
 logo = '''\t\n\n

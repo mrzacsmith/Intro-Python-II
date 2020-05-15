@@ -13,3 +13,11 @@ class Player:
 
     def __str__(self):
         return f'{self.current_room}'
+
+    # def displayItemsRoom(self):
+
+    # def displayPlayerItems(self):
+
+    # def addItem(self, item):
+
+    # def dropItem(self, item)
