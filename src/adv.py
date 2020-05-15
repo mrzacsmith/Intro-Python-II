@@ -1,8 +1,9 @@
 import time
 import sys
+import os
 from room import Room
 from player import Player
-
+from pygame import mixer
 # Declare all the rooms
 
 room = {
@@ -36,6 +37,30 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+logo = '''\t\n\n
+                    ___           ___           ___                                               
+     _____         /\  \         /\  \         /|  |                                              
+    /::\  \       /::\  \       /::\  \       |:|  |                                              
+   /:/\:\  \     /:/\:\  \     /:/\:\__\      |:|  |                                              
+  /:/  \:\__\   /:/ /::\  \   /:/ /:/  /    __|:|  |                                              
+ /:/__/ \:|__| /:/_/:/\:\__\ /:/_/:/__/___ /\ |:|__|____                                          
+ \:\  \ /:/  / \:\/:/  \/__/ \:\/:::::/  / \:\/:::::/__/                                          
+  \:\  /:/  /   \::/__/       \::/~~/~~~~   \::/~~/~                                              
+   \:\/:/  /     \:\  \        \:\~~\        \:\~~\                                               
+    \::/  /       \:\__\        \:\__\        \:\__\                                              
+     \/__/         \/__/         \/__/         \/__/                                              
+                    ___           ___           ___           ___           ___                   
+     _____         /\__\         /\__\         /\__\         /\__\         /\  \                  
+    /::\  \       /:/ _/_       /:/ _/_       /:/  /        /:/ _/_        \:\  \         ___     
+   /:/\:\  \     /:/ /\__\     /:/ /\  \     /:/  /        /:/ /\__\        \:\  \       /\__\    
+  /:/  \:\__\   /:/ /:/ _/_   /:/ /::\  \   /:/  /  ___   /:/ /:/ _/_   _____\:\  \     /:/  /    
+ /:/__/ \:|__| /:/_/:/ /\__\ /:/_/:/\:\__\ /:/__/  /\__\ /:/_/:/ /\__\ /::::::::\__\   /:/__/     
+ \:\  \ /:/  / \:\/:/ /:/  / \:\/:/ /:/  / \:\  \ /:/  / \:\/:/ /:/  / \:\~~\~~\/__/  /::\  \     
+  \:\  /:/  /   \::/_/:/  /   \::/ /:/  /   \:\  /:/  /   \::/_/:/  /   \:\  \       /:/\:\  \    
+   \:\/:/  /     \:\/:/  /     \/_/:/  /     \:\/:/  /     \:\/:/  /     \:\  \      \/__\:\  \   
+    \::/  /       \::/  /        /:/  /       \::/  /       \::/  /       \:\__\          \:\__\  
+     \/__/         \/__/         \/__/         \/__/         \/__/         \/__/           \/__/ '''
+
 #
 # Main
 #
@@ -52,8 +77,18 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-intro = 'I was a young teen, in search of finding a real demon!' + \
+PATH = os.path.dirname(__file__)
+# SOUND = os.path.join(PATH, 'src')
+
+mixer.init()
+mixer.music.load(os.path.join(PATH, 'scary.mp3'))
+mixer.music.play()
+time.sleep(2)
+print(logo)
+
+intro = '\n\nI was a young teen, in search of finding a real demon!' + \
     ' I was told that this house was haunted by one!\n\n'
+
 for char in intro:
     sys.stdout.write(char)
     sys.stdout.flush()
@@ -72,7 +107,7 @@ while True:
     if direction == 'n':
         next = player.current_room.n_to
         if next == None:
-            print((f'\n\tYou can not go North, please choose a different direction!'))
+            print((f'\n\tYou can not go North, please choose a different direction!\n'))
         else:
             player = Player(name, next)
             print(player)
@@ -80,7 +115,7 @@ while True:
     elif direction == 's':
         next = player.current_room.s_to
         if next == None:
-            print((f'\n\tYou can not go South, please choose a different direction!'))
+            print((f'\n\tYou can not go South, please choose a different direction!\n'))
         else:
             player = Player(name, next)
             print(player)
@@ -88,7 +123,7 @@ while True:
     elif direction == 'e':
         next = player.current_room.e_to
         if next == None:
-            print((f'\n\tYou can not go East, please choose a different direction!'))
+            print((f'\n\tYou can not go East, please choose a different direction!\n'))
         else:
             player = Player(name, next)
             print(player)
@@ -96,7 +131,7 @@ while True:
     elif direction == 'w':
         next = player.current_room.w_to
         if next == None:
-            print((f'\n\tYou can not go West, please choose a different direction!'))
+            print((f'\n\tYou can not go West, please choose a different direction!\n'))
         else:
             player = Player(name, next)
             print(player)
