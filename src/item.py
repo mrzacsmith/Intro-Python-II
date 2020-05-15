@@ -8,6 +8,9 @@ class Item:
     def pickUp(self):
         print(f'You have picked up {self.name}.')
 
+    def drop(self):
+        print(f'Yu have dropped {self.name}')
+
 
 class Food(Item):
     """Food docstring"""
