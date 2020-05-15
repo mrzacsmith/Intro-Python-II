@@ -48,7 +48,7 @@ stick = Item("stick", "old wooden stick")
 
 room["outside"].addItems(spellbook, pbj, jerky)
 room["foyer"].addItems(stick, key)
-room["overlook"].addItems(stick, spellbook, jery)
+room["overlook"].addItems(stick, spellbook, jerky)
 room["narrow"].addItems(candlestick, pbj)
 room["treasure"].addItems(spellbook, key, jerky)
 
