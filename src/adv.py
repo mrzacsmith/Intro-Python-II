@@ -3,7 +3,7 @@ import sys
 import os
 from room import Room
 from player import Player
-from pygame import mixer
+from item import Item, Food, Weapon
 # Declare all the rooms
 
 room = {
@@ -77,12 +77,7 @@ logo = '''\t\n\n
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-PATH = os.path.dirname(__file__)
-# SOUND = os.path.join(PATH, 'src')
 
-mixer.init()
-mixer.music.load(os.path.join(PATH, 'scary.mp3'))
-mixer.music.play()
 time.sleep(2)
 print(logo)
 
