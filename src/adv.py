@@ -37,6 +37,23 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+# items
+spellbook = Item('spellbook', 'book of magic and spells')
+candlestick = Item('candlestick', 'light your path with a candlestick')
+key = Item('key', 'use to open the treasure chest')
+
+# food
+pbj = Food("peanut butter and jelly", "gives you 25 health", 25)
+jerky = Food("beef jerky", "gives you 35 health", 35)
+peach = Food("sweet peach", "gives you 5 health", 5)
+
+# weapons
+stick = Weapon("wooden stick", "deals 5 damage", 5)
+sword = Weapon("long sword", "deals 25 damamge", 5)
+pistol = Weapon("old timey pistol", "deals 50 damage", 50)
+
+
+
 logo = '''\t\n\n
                     ___           ___           ___                                               
      _____         /\  \         /\  \         /|  |                                              
