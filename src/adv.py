@@ -57,7 +57,7 @@ intro = 'I was a young teen, in search of finding a real demon!' + \
 for char in intro:
     sys.stdout.write(char)
     sys.stdout.flush()
-    time.sleep(.2)
+    time.sleep(.15)
 
 name = input('\tWhat is your name, charmed one? \t')
 
@@ -70,17 +70,40 @@ while True:
         '\nWhat direction would you like to go: N(orth), S(outh), E(ast), W(est), Q to quit! ').lower()
 
     if direction == 'n':
-        print('north')
+        next = player.current_room.n_to
+        if next == None:
+            print((f'\n\tYou can not go North, please choose a different direction!'))
+        else:
+            player = Player(name, next)
+            print(player)
 
     elif direction == 's':
-        print('south')
+        next = player.current_room.s_to
+        if next == None:
+            print((f'\n\tYou can not go South, please choose a different direction!'))
+        else:
+            player = Player(name, next)
+            print(player)
 
     elif direction == 'e':
-        print('east')
+        next = player.current_room.e_to
+        if next == None:
+            print((f'\n\tYou can not go East, please choose a different direction!'))
+        else:
+            player = Player(name, next)
+            print(player)
 
     elif direction == 'w':
-        print('west')
+        next = player.current_room.w_to
+        if next == None:
+            print((f'\n\tYou can not go West, please choose a different direction!'))
+        else:
+            player = Player(name, next)
+            print(player)
 
     elif direction == 'q':
-        print('\nHaha, you quit rather than face your fears! \n\n')
+        print('\nThe lurky demon of the mansion hears your wimpy footsteps. As you start to run away, the demons whispers chilling haunts luring you back ....... \n\n')
         break
+
+    elif direction != 'n' or 's' or 'w' or 'e' or 'q':
+        print('\n\tInvalid, try again using N, S, E, W')
